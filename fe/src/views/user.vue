@@ -184,7 +184,7 @@ export default {
     },
     postUser () {
       this.dialog = false
-      axios.post('http://192.168.1.175:3000/api/user', {
+      axios.post(`${this.$apiRootPath}user`, {
         name: this.userName, age: this.userAge
       })
         .then((r) => {
@@ -196,7 +196,7 @@ export default {
         })
     },
     getUsers () {
-      axios.get('http://192.168.1.175:3000/api/user')
+      axios.get(`${this.$apiRootPath}user`)
         .then((r) => {
           // console.log(r.data)
           this.users = r.data.users
@@ -213,7 +213,7 @@ export default {
     },
     putUser () {
       this.dialog = false
-      axios.put(`http://192.168.1.175:3000/api/user/${this.putId}`, {
+      axios.put(`${this.$apiRootPath}user/${this.putId}`, {
         name: this.userName, age: this.userAge
       })
         .then((r) => {
@@ -225,7 +225,7 @@ export default {
         })
     },
     delUser (id) {
-      axios.delete(`http://192.168.1.175:3000/api/user/${id}`)
+      axios.delete(`${this.$apiRootPath}user/${id}`)
         .then((r) => {
           this.pop('사용자 삭제 완료')
           this.getUsers()

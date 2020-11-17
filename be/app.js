@@ -7,7 +7,6 @@ var cors = require('cors');
 var app = express();
 
 const mongoose = require('mongoose')
-
 mongoose.connect('mongodb://localhost:27017/nemv', { useNewUrlParser: true }, (err) => {
   if (err) return console.error(err)
   console.log('mongoose connected!')
@@ -18,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(cors());
+if (process.env.NODE_ENV !== 'production') app.use(cors())
 app.use('/api', require('./routes/api'));
 app.use(express.static(path.join(__dirname, '../', 'fe', 'dist')));
 
