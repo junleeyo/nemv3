@@ -6,6 +6,7 @@ import vuetify from './plugins/vuetify'
 import '@babel/polyfill'
 
 Vue.config.productionTip = false
+Vue.prototype.$apiNodeEnv = process.env.NODE_ENV
 Vue.prototype.$apiRootPath = process.env.NODE_ENV !== 'production' ? 'http://192.168.1.175:3000/api/' : '/api/'
 
 new Vue({

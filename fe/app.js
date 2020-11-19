@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cors = require('cors')
 var app = express();
 var mongoose = require('mongoose');
+var cfg = require('../config');
 
 var userSchema = new mongoose.Schema({
   name: { type: String, default: '', unique: true, index: true },
@@ -13,13 +14,13 @@ var userSchema = new mongoose.Schema({
 })
 var User = mongoose.model('User', userSchema)
 
-mongoose.connect('mongodb://localhost:27017/nemv', { useNewUrlParser: true }, (err) => {
+mongoose.connect(g.dbUrl, { useNewUrlParser: true }, (err) => {
   if (err) return console.error(err)
   console.log('mongoose connected!')
 
-  User.create({ name: '하하' })
+  /*User.create({ name: '하하' })
       .then(r => console.log(r))
-      .catch(e => console.error(e))
+      .catch(e => console.error(e))*/
 
   /*User.find()
       .then(r => console.log(r))

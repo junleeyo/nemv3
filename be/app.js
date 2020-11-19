@@ -5,9 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 var app = express();
+var cfg = require('../config');
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/nemv', { useNewUrlParser: true }, (err) => {
+mongoose.connect(cfg.dbUrl, { useNewUrlParser: true }, (err) => {
   if (err) return console.error(err)
   console.log('mongoose connected!')
 })

@@ -11,7 +11,7 @@
             Vue
           </v-list-item-title>
           <v-list-item-subtitle>
-            {{ this.$apiRootPath }}
+           {{ this.$apiNodeEnv }} : {{ this.$apiRootPath }}
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
