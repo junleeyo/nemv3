@@ -48,7 +48,9 @@ export default {
         { title: 'Dashboard', icon: 'mdi-view-dashboard', route: '/' },
         { title: 'About', icon: 'mdi-home', route: '/about' },
         { title: 'help', icon: 'mdi-help', route: '/help' },
-        { title: 'user', icon: 'mdi-help', route: '/user' }
+        { title: 'user', icon: 'mdi-help', route: '/user' },
+        { title: 'header', icon: 'mdi-help', route: '/header' },
+        { title: 'sign', icon: 'mdi-help', route: '/sign' }
       ],
       right: null
     }

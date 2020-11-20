@@ -7,6 +7,18 @@ var cors = require('cors');
 var app = express();
 var cfg = require('../config');
 
+/*
+var jwt = require('jsonwebtoken');
+
+var key = 'dmoejdidufi1233!@'
+var token = jwt.sign({ id: 'test', email: 'test@korea.com' }, key);
+console.log(token)
+
+var decoded = jwt.verify(token, key) 
+console.log(decoded) 
+console.log(new Date(decoded.iat * 1000).toLocaleString())
+*/
+
 const mongoose = require('mongoose')
 mongoose.connect(cfg.dbUrl, { useNewUrlParser: true }, (err) => {
   if (err) return console.error(err)

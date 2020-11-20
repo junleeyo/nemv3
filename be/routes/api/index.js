@@ -9,9 +9,12 @@ router.get('/hello', function(req, res, next) {
 
 router.use('/test', require('./test'));
 router.use('/user', require('./user'));
+router.use('/sign', require('./sign'))
 
 router.all('*', function(req, res, next) {
-    next(createError(404, '그런 api 없어요.'));
+    // next(createError(404, '그런 api 없어요.'));
+    // 토큰 검사
+    next()
 });
 
 module.exports = router;

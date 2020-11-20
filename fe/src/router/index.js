@@ -29,6 +29,16 @@ const routes = [
     component: () => import('../views/user')
   },
   {
+    path: '/header',
+    name: 'header',
+    component: () => import('../views/header')
+  },
+  {
+    path: '/sign',
+    name: 'sign',
+    component: () => import('../views/sign')
+  },
+  {
     path: '*',
     name: 'e404',
     component: () => import('../views/e404')
