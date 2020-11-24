@@ -45,15 +45,23 @@ export default {
   data () {
     return {
       items: [
-        { title: 'Dashboard', icon: 'mdi-view-dashboard', route: '/' },
-        { title: 'About', icon: 'mdi-home', route: '/about' },
-        { title: 'help', icon: 'mdi-help', route: '/help' },
-        { title: 'user', icon: 'mdi-help', route: '/user' },
-        { title: 'header', icon: 'mdi-help', route: '/header' },
-        { title: 'sign', icon: 'mdi-help', route: '/sign' }
+        { title: 'lv0', icon: 'home', route: '/' },
+        { title: 'lv1', icon: 'home', route: '/lv1' },
+        { title: 'lv2', icon: 'home', route: '/lv2' },
+        { title: 'lv3', icon: 'home', route: '/lv3' },
+        { title: 'user', icon: 'face', route: '/user' },
+        { title: 'page', icon: 'face', route: '/page' }
+        /*{ title: 'About', icon: 'mdi-home', route: '/about' },
+        { title: 'help', icon: 'mdi-help', route: '/help' },        
+        { title: 'header', icon: 'face', route: '/header' },
+        { title: 'sign', icon: 'face', route: '/sign' }*/
       ],
       right: null
     }
+  },
+  mounted () {
+  },
+  methods: {  
   }
 }
 </script>

@@ -1,6 +1,8 @@
 <template>
   <v-app>
-    <v-app-bar app></v-app-bar>
+    <v-app-bar app>
+      <Header />
+    </v-app-bar>
 
     <v-navigation-drawer app>
       <NavLeft />
@@ -26,12 +28,14 @@
 </template>
 
 <script>
+import Header from './components/Header'
 import NavLeft from './components/NavLeft'
 
 export default {
   name: 'App',
   components: {
     NavLeft
+    ,Header
   },
   data: () => ({
   })
