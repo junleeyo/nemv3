@@ -8,9 +8,23 @@ Vue.prototype.$axios = axios
 const apiRootPath = process.env.NODE_ENV !== 'production' ? 'http://192.168.1.175:3000/api/' : '/api/'
 Vue.prototype.$apiRootPath = apiRootPath
 
+axios.defaults.baseURL = apiRootPath
+axios.defaults.headers.common.Authorization = localStorage.getItem('token')
+axios.interceptors.request.use(function (config) {
+  config.headers.Authorization = localStorage.getItem('token')
+  return config
+}, function (error) {
+  return Promise.reject(error)
+})
+axios.interceptors.response.use(function (response) {
+  return response
+}, function (error) {
+  return Promise.reject(error)
+})
+
 const pageCheck = (to, from, next) => {
   // return next()
-  axios.post(`${apiRootPath}page`, { name: to.path.replace('/', '') }, { headers: { Authorization: localStorage.getItem('token') } })
+  axios.post('page', { name: to.path.replace('/', '') })
     .then((r) => {
       if (!r.data.success) throw new Error(r.data.msg)
       next()
@@ -49,17 +63,30 @@ const routes = [
   {
     path: '/user',
     name: 'user',
-    component: () => import('../views/user')
+    component: () => import('../views/user'),
+    beforeEnter: pageCheck
   },
   {
     path: '/page',
     name: 'page',
-    component: () => import('../views/page')
+    component: () => import('../views/page'),
+    beforeEnter: pageCheck
+  },
+  {
+    path: '/site',
+    name: 'site',
+    component: () => import('../views/site'),
+    beforeEnter: pageCheck
   },
   {
     path: '/block/:msg',
     name: 'block',
     component: () => import('../views/block')
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import('../views/register')
   },
   {
     path: '/sign',

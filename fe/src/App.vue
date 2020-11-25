@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :dark="siteDark">
     <v-app-bar app>
       <Header />
     </v-app-bar>
@@ -22,7 +22,7 @@
     </v-main>
 
     <v-footer app>
-      <!-- -->
+     <span>&copy; {{siteCopyright}}</span>
     </v-footer>
   </v-app>
 </template>
@@ -33,11 +33,29 @@ import NavLeft from './components/NavLeft'
 
 export default {
   name: 'App',
-  components: {
-    NavLeft
-    ,Header
+  data () {
+    return {
+      siteCopyright: '기다리는중',
+      siteDark: false
+    }
   },
-  data: () => ({
-  })
+  components: {
+    NavLeft,
+    Header
+  },
+  mounted () {
+    this.getSite()
+  },
+  methods: {
+    getSite () {
+      this.$axios.get('/site')
+        .then(r => {
+          console.log(r.data.d)
+          this.siteCopyright = r.data.d.copyright
+          this.siteDark = r.data.d.dark
+        })
+        .catch(e => console.error(e.message))
+    }
+  }
 }
 </script>

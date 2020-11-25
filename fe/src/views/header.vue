@@ -11,12 +11,12 @@ export default {
   methods: {    
     apiWithToken () {
       const token = localStorage.getItem('token')
-      axios.get(`${this.$apiRootPath}test`, { headers: { Authorization: token } })
+      axios.get(`test`, { headers: { Authorization: token } })
         .then(r => console.log(r.data))
         .catch(e => console.log(e.message))
     },
     apiWithTrash () {
-      axios.get(`${this.$apiRootPath}test`, { headers: { Authorization: 'abcdefghijk' } })
+      axios.get(`test`, { headers: { Authorization: 'abcdefghijk' } })
         .then(r => console.log(r.data))
         .catch(e => console.log(e.message))
     }

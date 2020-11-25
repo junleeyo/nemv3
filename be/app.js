@@ -17,6 +17,17 @@ console.log(token)
 var decoded = jwt.verify(token, key) 
 console.log(decoded) 
 console.log(new Date(decoded.iat * 1000).toLocaleString())
+
+const crypto = require('crypto');
+const registPwd = '1234' // 회원가입시 1234로 등록
+const dbPwd = crypto.scryptSync(registPwd, 'salt', 64, { N: 1024 }).toString('hex'); // 암호화된 문자를 디비에 저장
+console.log(dbPwd)
+
+const inputPwd = '12345' // 로그인시 12345로 들어옴
+const userPwd = crypto.scryptSync(inputPwd, 'salt', 64, { N: 1024 }).toString('hex'); // 암호화된 문자로 변경
+
+if (userPwd === dbPwd) console.log('pwd OK')
+else console.log('pwd not')
 */
 
 const mongoose = require('mongoose')

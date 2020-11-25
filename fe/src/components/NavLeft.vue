@@ -50,18 +50,21 @@ export default {
         { title: 'lv2', icon: 'home', route: '/lv2' },
         { title: 'lv3', icon: 'home', route: '/lv3' },
         { title: 'user', icon: 'face', route: '/user' },
-        { title: 'page', icon: 'face', route: '/page' }
-        /*{ title: 'About', icon: 'mdi-home', route: '/about' },
-        { title: 'help', icon: 'mdi-help', route: '/help' },        
+        { title: 'page', icon: 'face', route: '/page' },
+        { title: 'site', icon: 'face', route: '/site' }
+        /*
+        { title: 'About', icon: 'mdi-home', route: '/about' },
+        { title: 'help', icon: 'mdi-help', route: '/help' },
         { title: 'header', icon: 'face', route: '/header' },
-        { title: 'sign', icon: 'face', route: '/sign' }*/
+        { title: 'sign', icon: 'face', route: '/sign' }
+        */
       ],
       right: null
     }
   },
   mounted () {
   },
-  methods: {  
+  methods: {
   }
 }
 </script>

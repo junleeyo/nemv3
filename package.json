@@ -6,6 +6,5 @@
     "serve": "cd fe && yarn serve",
     "pr": "cd fe && yarn && yarn build && cd ../be && yarn && NODE_ENV=production PORT=80 node ./bin/www",
     "pm2": "cd fe && yarn && yarn build && cd ../be && yarn && cd .. && pm2 start --env production"
-  },
-  "dependencies": {}
+  }
 }
